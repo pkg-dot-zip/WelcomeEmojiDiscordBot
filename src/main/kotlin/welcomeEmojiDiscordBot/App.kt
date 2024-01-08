@@ -17,7 +17,7 @@ val TEST_SERVER_ID = Snowflake(
 
 private val TOKEN = env("TOKEN")   // Get the bot' token from the env vars or a .env file
 
-private val EMOJI = env("EMOJI")
+private val EMOJI = env("EMOJI") // Get the bot' emoji from the env vars or a .env file
 
 suspend fun main() {
 	val bot = ExtensibleBot(TOKEN) {

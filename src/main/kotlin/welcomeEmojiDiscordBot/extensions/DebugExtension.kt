@@ -12,14 +12,14 @@ class DebugExtension : Extension() {
 
 	override suspend fun setup() {
 		publicSlashCommand {
-			name = "stop"
+			name = "emojiStop"
 			description = "Stops the bot"
 
 			guild(TEST_SERVER_ID)  // Otherwise it will take up to an hour to update
 
 			action {
 				respond {
-					content = "${event.interaction.user.mention} stopped the QRBot."
+					content = "${event.interaction.user.mention} stopped the WelcomeEmojiDiscordBot."
 				}
 
 				bot.stop() // Kills the process.
