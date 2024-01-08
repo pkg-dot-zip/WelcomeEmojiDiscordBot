@@ -17,6 +17,8 @@ val TEST_SERVER_ID = Snowflake(
 
 private val TOKEN = env("TOKEN")   // Get the bot' token from the env vars or a .env file
 
+private val EMOJI = env("EMOJI")
+
 suspend fun main() {
 	val bot = ExtensibleBot(TOKEN) {
 		// Puts "Playing with your feelings" under the bots' username.
@@ -32,7 +34,7 @@ suspend fun main() {
 
 	bot.on<MessageCreateEvent> {
 		if (message.type == MessageType.UserJoin) {
-			message.addReaction("\uD83D\uDEA3\u200D♂\uFE0F")
+			message.addReaction(EMOJI)
 		}
 	}
 
