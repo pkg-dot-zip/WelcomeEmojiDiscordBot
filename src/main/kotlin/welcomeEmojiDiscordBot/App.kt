@@ -4,14 +4,12 @@
 package welcomeEmojiDiscordBot
 
 import com.kotlindiscord.kord.extensions.ExtensibleBot
-import com.kotlindiscord.kord.extensions.checks.messageFor
 import com.kotlindiscord.kord.extensions.utils.addReaction
 import com.kotlindiscord.kord.extensions.utils.env
 import dev.kord.common.entity.MessageType
 import dev.kord.common.entity.Snowflake
 import dev.kord.core.event.message.MessageCreateEvent
 import welcomeEmojiDiscordBot.extensions.DebugExtension
-import welcomeEmojiDiscordBot.extensions.TestExtension
 
 val TEST_SERVER_ID = Snowflake(
 	env("TEST_SERVER").toLong()  // Get the test server ID from the env vars or a .env file
