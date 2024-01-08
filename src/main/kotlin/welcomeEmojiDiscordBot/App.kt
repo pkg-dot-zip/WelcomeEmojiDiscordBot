@@ -6,6 +6,7 @@ package welcomeEmojiDiscordBot
 import com.kotlindiscord.kord.extensions.ExtensibleBot
 import com.kotlindiscord.kord.extensions.utils.env
 import dev.kord.common.entity.Snowflake
+import welcomeEmojiDiscordBot.extensions.DebugExtension
 import welcomeEmojiDiscordBot.extensions.TestExtension
 
 val TEST_SERVER_ID = Snowflake(
@@ -33,6 +34,7 @@ suspend fun main() {
 
 		extensions {
 			add(::TestExtension)
+			add(::DebugExtension)
 		}
 	}
 
