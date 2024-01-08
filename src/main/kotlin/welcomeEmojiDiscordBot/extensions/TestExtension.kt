@@ -5,34 +5,14 @@ import com.kotlindiscord.kord.extensions.commands.converters.impl.coalescingDefa
 import com.kotlindiscord.kord.extensions.commands.converters.impl.defaultingString
 import com.kotlindiscord.kord.extensions.commands.converters.impl.user
 import com.kotlindiscord.kord.extensions.extensions.Extension
-import com.kotlindiscord.kord.extensions.extensions.chatCommand
 import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
-import com.kotlindiscord.kord.extensions.utils.respond
 import welcomeEmojiDiscordBot.TEST_SERVER_ID
 
 class TestExtension : Extension() {
 	override val name = "test"
 
 	override suspend fun setup() {
-		chatCommand(::SlapArgs) {
-			name = "slap"
-			description = "Ask the bot to slap another user"
-
-			check { failIf(event.message.author == null) }
-
-			action {
-				// Don't slap ourselves on request, slap the requester!
-				val realTarget = if (arguments.target.id == event.kord.selfId) {
-					message.author!!
-				} else {
-					arguments.target
-				}
-
-				message.respond("*slaps ${realTarget.mention} with their ${arguments.weapon}*")
-			}
-		}
-
 		publicSlashCommand(::SlapSlashArgs) {
 			name = "slap"
 			description = "Ask the bot to slap another user"

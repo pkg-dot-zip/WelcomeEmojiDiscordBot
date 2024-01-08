@@ -4,8 +4,12 @@
 package welcomeEmojiDiscordBot
 
 import com.kotlindiscord.kord.extensions.ExtensibleBot
+import com.kotlindiscord.kord.extensions.checks.messageFor
+import com.kotlindiscord.kord.extensions.utils.addReaction
 import com.kotlindiscord.kord.extensions.utils.env
+import dev.kord.common.entity.MessageType
 import dev.kord.common.entity.Snowflake
+import dev.kord.core.event.message.MessageCreateEvent
 import welcomeEmojiDiscordBot.extensions.DebugExtension
 import welcomeEmojiDiscordBot.extensions.TestExtension
 
@@ -17,24 +21,23 @@ private val TOKEN = env("TOKEN")   // Get the bot' token from the env vars or a 
 
 suspend fun main() {
 	val bot = ExtensibleBot(TOKEN) {
-		chatCommands {
-			defaultPrefix = "?"
-			enabled = true
-
-			prefix { default ->
-				if (guildId == TEST_SERVER_ID) {
-					// For the test server, we use ! as the command prefix
-					"!"
-				} else {
-					// For other servers, we use the configured default prefix
-					default
-				}
-			}
+		// Puts "Playing with your feelings" under the bots' username.
+		presence {
+			playing("with your feelings")
 		}
 
 		extensions {
-			add(::TestExtension)
+			// Contains the commands of the bot.
 			add(::DebugExtension)
+		}
+	}
+
+	bot.on<MessageCreateEvent> {
+		println("Created message ${message.content}")
+
+		if (message.type == MessageType.UserJoin) {
+			println("WAS TYPE UserJoin for: ${message.content}")
+			message.addReaction("\uD83D\uDEA3\u200D♂\uFE0F")
 		}
 	}
 
