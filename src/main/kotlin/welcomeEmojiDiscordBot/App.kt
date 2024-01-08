@@ -33,10 +33,7 @@ suspend fun main() {
 	}
 
 	bot.on<MessageCreateEvent> {
-		println("Created message ${message.content}")
-
 		if (message.type == MessageType.UserJoin) {
-			println("WAS TYPE UserJoin for: ${message.content}")
 			message.addReaction("\uD83D\uDEA3\u200D♂\uFE0F")
 		}
 	}
