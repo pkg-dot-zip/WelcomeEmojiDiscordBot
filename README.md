@@ -62,6 +62,6 @@ Use _/emojiStop_ to stop the bot.
 - [Kord Essentials Template](https://github.com/Kord-Extensions/template/) - Template used
 
 ## ✍️ Authors <a name = "authors"></a>
-- [@OnsPetruske](https://github.com/pkg-dot-zip) - Idea & Initial work
+- [@pkg-dot-zip](https://github.com/pkg-dot-zip) - Idea & Initial work
 
 See also the list of [contributors](https://github.com/pkg-dot-zip/WelcomeEmojiDiscordBot/contributors) who participated in this project.
